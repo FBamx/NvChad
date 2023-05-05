@@ -259,7 +259,6 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
-
 }
 
 local config = require("core.utils").load_config()

@@ -1,25 +1,5 @@
 local options = {
-  ensure_installed = {
-    "bash",
-    "comment",
-    "diff",
-    "dockerfile",
-    "dot",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "lua",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "mermaid",
-    "python",
-    "regex",
-    "vim",
-    "yaml",
-    "cpp",
-  },
+  ensure_installed = { "lua" },
 
   highlight = {
     enable = true,
