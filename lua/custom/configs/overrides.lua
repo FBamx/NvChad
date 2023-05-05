@@ -21,6 +21,18 @@ M.treesitter = {
     "vim",
     "yaml",
     "cpp",
+    "go",
+    "gomod",
+    "gosum",
+    "rust",
+    "toml",
+    "ron",
+    "css",
+    "html",
+    "javascript",
+    "typescript",
+    "jsdoc",
+    "scss",
   },
   indent = {
     enable = true,
@@ -39,6 +51,7 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
+    "eslint-lsp",
     "typescript-language-server",
     "deno",
     "prettier",
@@ -46,6 +59,20 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- python stuff
+    "pyright",
+
+    -- go stuff
+    "gopls",
+
+    -- shell stuff
+    "shfmt",
+
+    -- rust stuff
+    "codelldb",
+    "rust-analyzer",
+    "taplo",
   },
 }
 
