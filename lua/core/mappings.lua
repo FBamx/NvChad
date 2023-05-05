@@ -205,13 +205,6 @@ M.lspconfig = {
       "goto_next",
     },
 
-    ["<leader>q"] = {
-      function()
-        vim.diagnostic.setloclist()
-      end,
-      "diagnostic setloclist",
-    },
-
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
