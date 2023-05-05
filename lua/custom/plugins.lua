@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -9,6 +9,7 @@ local plugins = {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
+      { "simrat39/rust-tools.nvim" },
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
@@ -25,7 +26,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
