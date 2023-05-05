@@ -260,10 +260,6 @@ local default_plugins = {
     end,
   },
 
-  -- tmux navagation
-  {
-    "christoomey/vim-tmux-navigator",
-  },
 }
 
 local config = require("core.utils").load_config()
