@@ -48,6 +48,9 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
+    -- bashls
+    "bash-language-server",
+
     -- web dev stuff
     "css-lsp",
     "html-lsp",
@@ -58,7 +61,7 @@ M.mason = {
 
     -- c/cpp stuff
     "clangd",
-    "clang-format",
+    -- "clang-format",
 
     -- python stuff
     "pyright",

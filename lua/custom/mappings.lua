@@ -24,6 +24,12 @@ M.SymbolOutline = {
   }
 }
 
+M.Lazy = {
+  n = {
+    ["<leader>la"] = {"<cmd> Lazy<CR>", "lazy"}
+  }
+}
+
 -- more keybinds!
 
 return M

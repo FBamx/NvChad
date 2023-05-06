@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "pyright" }
+local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "pyright", "bashls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -13,6 +13,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- rust
 lspconfig.rust_analyzer.setup {
   setup = {
     rust_analyzer = function(_, opts)

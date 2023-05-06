@@ -15,6 +15,9 @@ local sources = {
   -- Lua
   b.formatting.stylua,
 
+  -- shell
+  b.formatting.shfmt,
+
   -- cpp
   b.formatting.clang_format,
 }
@@ -23,3 +26,4 @@ null_ls.setup {
   debug = true,
   sources = sources,
 }
+
