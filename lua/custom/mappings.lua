@@ -30,6 +30,12 @@ M.Lazy = {
   }
 }
 
+M.LazyGit = {
+  n = {
+    ["<leader>gg"] = {"<cmd> LazyGit<CR>", "LazyGit"}
+  }
+}
+
 -- more keybinds!
 
 return M
