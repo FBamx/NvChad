@@ -229,6 +229,16 @@ local default_plugins = {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    dependencies = {
+      { "nvim-telescope/telescope-dap.nvim" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-project.nvim" },
+      { "debugloop/telescope-undo.nvim" },
+      -- { "AckslD/nvim-neoclip.lua" },
+      { "xiyaowong/telescope-emoji.nvim" },
+      { "LinArcX/telescope-env.nvim" },
+      { "LinArcX/telescope-ports.nvim" },
+    },
     init = function()
       require("core.utils").load_mappings "telescope"
     end,
@@ -245,6 +255,13 @@ local default_plugins = {
         telescope.load_extension(ext)
       end
     end,
+    keys = {
+      { "<leader>fp",      "<CMD>Telescope project display_type=full<CR>", desc = "Find project" },
+      { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                  desc = "Recent" },
+      { "<leader>mo",      "<Cmd>Telescope emoji<CR>",                     desc = "emoji" },
+      { "<leader>nv",      "<Cmd>Telescope env<CR>",                       desc = "env" },
+      { "<leader>po",      "<Cmd>Telescope ports<CR>",                     desc = "ports" },
+    },
   },
 
   -- Only load whichkey after all the gui

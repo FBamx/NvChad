@@ -75,8 +75,23 @@ local options = {
       },
     },
   },
+  extensions = {
+    project = {
+      base_dirs = {
+        "~/workspace/",
+      },
+    },
+    undo = {
+      use_delta = true,
+      side_by_side = true,
+      layout_strategy = "vertical",
+      layout_config = {
+        preview_height = 0.4,
+      },
+    },
+  },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "project", "emoji", "env", "ports", "undo" },
 }
 
 return options
