@@ -234,7 +234,6 @@ local default_plugins = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-project.nvim" },
       { "debugloop/telescope-undo.nvim" },
-      -- { "AckslD/nvim-neoclip.lua" },
       { "xiyaowong/telescope-emoji.nvim" },
       { "LinArcX/telescope-env.nvim" },
       { "LinArcX/telescope-ports.nvim" },
@@ -256,11 +255,31 @@ local default_plugins = {
       end
     end,
     keys = {
-      { "<leader>fp",      "<CMD>Telescope project display_type=full<CR>", desc = "Find project" },
-      { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                  desc = "Recent" },
-      { "<leader>mo",      "<Cmd>Telescope emoji<CR>",                     desc = "emoji" },
-      { "<leader>nv",      "<Cmd>Telescope env<CR>",                       desc = "env" },
-      { "<leader>po",      "<Cmd>Telescope ports<CR>",                     desc = "ports" },
+      { "<leader>fp", "<CMD>Telescope project display_type=full<CR>", desc = "Find project" },
+      { "<leader>fr", "<cmd>Telescope oldfiles<cr>",                  desc = "Recent" },
+      { "<leader>mo", "<Cmd>Telescope emoji<CR>",                     desc = "emoji" },
+      { "<leader>nv", "<Cmd>Telescope env<CR>",                       desc = "env" },
+      { "<leader>po", "<Cmd>Telescope ports<CR>",                     desc = "ports" },
+    },
+  },
+
+  -- neoclip
+  {
+    "telescope.nvim",
+    dependencies = {
+      -- project management
+      {
+        "AckslD/nvim-neoclip.lua",
+        lazy = false,
+        opts = {},
+        config = function(_, opts)
+          require("neoclip").setup(opts)
+          require("telescope").load_extension("neoclip")
+        end,
+        keys = {
+          { "<leader>fy", "<Cmd>Telescope neoclip<CR>", desc = "neoclip" },
+        },
+      },
     },
   },
 
