@@ -62,12 +62,22 @@ vim.env.PATH = vim.env.PATH .. (is_windows and ";" or ":") .. vim.fn.stdpath "da
 
 -------------------------------------- autocmds ------------------------------------------
 local autocmd = vim.api.nvim_create_autocmd
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
 
 -- dont list quickfix buffers
 autocmd("FileType", {
   pattern = "qf",
   callback = function()
     vim.opt_local.buflisted = false
+  end,
+})
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup "highlight_yank",
+  callback = function()
+    vim.highlight.on_yank()
   end,
 })
 
@@ -106,5 +116,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 local new_cmd = vim.api.nvim_create_user_command
 
 new_cmd("NvChadUpdate", function()
-  require "nvchad.update"()
+  require "nvchad.update" ()
 end, {})
