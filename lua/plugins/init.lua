@@ -274,7 +274,7 @@ local default_plugins = {
         opts = {},
         config = function(_, opts)
           require("neoclip").setup(opts)
-          require("telescope").load_extension("neoclip")
+          require("telescope").load_extension "neoclip"
         end,
         keys = {
           { "<leader>fy", "<Cmd>Telescope neoclip<CR>", desc = "neoclip" },
