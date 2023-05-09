@@ -252,26 +252,28 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = function()
-      require("noice").setup {
-        lsp = {
-          progress = {
-            enabled = false,
-          },
-          hover = {
-            enabled = false,
-          },
-          signature = {
-            enabled = false,
-          },
-          message = {
-            enabled = true,
-            view = "notify",
-            opts = {},
-          },
+    opts = {
+      lsp = {
+        progress = {
+          enabled = false,
         },
-      }
-    end,
+        hover = {
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
+        },
+        message = {
+          enabled = true,
+          view = "notify",
+          opts = {},
+        },
+      },
+      presets = {
+        -- command_palette = true,
+        long_message_to_split = true,
+      },
+    },
   },
 
   -- notify
