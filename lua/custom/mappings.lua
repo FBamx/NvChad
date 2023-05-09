@@ -21,7 +21,7 @@ M.tmuxNavigator = {
 M.SymbolOutline = {
   -- plugin = true,
   n = {
-    ["<leader>tb"] = { "<cmd> SymbolsOutline<CR>", "open SymbolOutline" },
+    ["<leader>cs"] = { "<cmd> SymbolsOutline<CR>", "open SymbolOutline" },
   },
 }
 
