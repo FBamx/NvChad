@@ -12,7 +12,7 @@ M.ui = {
   hl_add = highlights.add,
   transparency = true,
   statusline = {
-    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "default",
     overriden_modules = nil,
   },

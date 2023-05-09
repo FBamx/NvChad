@@ -243,6 +243,88 @@ local plugins = {
       end,
     },
   },
+
+  -- noice
+  {
+    "folke/noice.nvim",
+    lazy = false,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup {
+        lsp = {
+          progress = {
+            enabled = false,
+          },
+          hover = {
+            enabled = false,
+          },
+          signature = {
+            enabled = false,
+          },
+          message = {
+            enabled = true,
+            view = "notify",
+            opts = {},
+          },
+        },
+      }
+    end,
+  },
+
+  -- notify
+  {
+    "rcarriga/nvim-notify",
+    keys = {
+      {
+        "<leader>un",
+        function()
+          require("notify").dismiss { silent = true, pending = true }
+        end,
+        desc = "Dismiss all Notifications",
+      },
+    },
+    opts = {
+      timeout = 3000,
+      background_colour = "#000000",
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+    },
+  },
+
+  -- measure startuptime
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 10
+    end,
+  },
+
+  -- session management
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
+    -- stylua: ignore
+    keys = {
+      { "<leader>qs", function() require("persistence").load() end,                desc = "Restore Session" },
+      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+      { "<leader>qd", function() require("persistence").stop() end,                desc = "Don't Save Current Session" },
+    },
+  },
+
+  -- library used by other plugins
+  { "nvim-lua/plenary.nvim", lazy = true },
+
+  -- makes some plugins dot-repeatable like leap
+  { "tpope/vim-repeat",      event = "VeryLazy" },
 }
 
 return plugins
