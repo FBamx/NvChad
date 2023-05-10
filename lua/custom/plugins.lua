@@ -199,6 +199,15 @@ local plugins = {
   -- makes some plugins dot-repeatable like leap
   { "tpope/vim-repeat",      event = "VeryLazy" },
 
+  -- nvim-rooter
+  {
+    "notjedi/nvim-rooter.lua",
+    lazy = false,
+    config = function()
+      require("nvim-rooter").setup()
+    end,
+  },
+
   { import = "custom.ui" },
   { import = "custom.dap" },
 }
