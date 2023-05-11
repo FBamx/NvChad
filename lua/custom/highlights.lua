@@ -9,11 +9,18 @@ M.override = {
   Comment = {
     italic = true,
   },
+  FoldColumn = {
+    fg = "NONE",
+    bg = "NONE",
+  },
 }
 
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  UfoCursorFoldedLine = {
+    bg = "#342e4f",
+  },
 }
 
 return M
