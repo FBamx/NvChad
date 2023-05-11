@@ -76,6 +76,9 @@ M.mason = {
     "codelldb",
     "rust-analyzer",
     "taplo",
+
+    -- yaml
+    "yaml-language-server",
   },
 }
 
