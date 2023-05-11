@@ -12,14 +12,27 @@ local plugins = {
       { "simrat39/rust-tools.nvim" },
       {
         "jose-elias-alvarez/null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
           require "custom.configs.null-ls"
         end,
       },
     },
+    --  opts = {
+    --    autoformat = true,
+    -- format = {
+    -- 	formatting_options = nil,
+    -- 	timeout_ms = nil,
+    -- },
+    --  },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+      -- require("custom.configs.format").autoformat = opts.autoformat
+      local util = require "custom.configs.util"
+      util.on_attach(function(client, buffer)
+        require("custom.configs.format").on_attach(client, buffer)
+      end)
     end, -- Override to setup mason-lspconfig
   },
 
@@ -108,10 +121,10 @@ local plugins = {
     cmd = { "TroubleToggle", "Trouble" },
     opts = { use_diagnostic_signs = true },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)" },
+      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
       { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List (Trouble)" },
+      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
       {
         "[q",
         function()
@@ -147,8 +160,8 @@ local plugins = {
   {
     "ggandor/leap.nvim",
     keys = {
-      { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
@@ -197,7 +210,7 @@ local plugins = {
   { "nvim-lua/plenary.nvim", lazy = true },
 
   -- makes some plugins dot-repeatable like leap
-  { "tpope/vim-repeat",      event = "VeryLazy" },
+  { "tpope/vim-repeat", event = "VeryLazy" },
 
   -- nvim-rooter
   {

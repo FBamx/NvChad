@@ -46,6 +46,10 @@ M.Git = {
   },
 }
 
--- more keybinds!
+M.format = {
+  n = {
+    ["<leader>uf"] = { require("custom.configs.format").toggle, "toggle format" },
+  },
+}
 
 return M

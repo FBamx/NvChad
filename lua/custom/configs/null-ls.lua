@@ -9,7 +9,7 @@ local b = null_ls.builtins
 local sources = {
 
   -- webdev stuff
-  b.formatting.deno_fmt,                                                    -- choosed deno for ts/js files cuz its very fast!
+  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
   -- Lua
@@ -23,9 +23,7 @@ local sources = {
 }
 
 null_ls.setup {
+  root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
   debug = true,
   sources = sources,
 }
-
--- format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
