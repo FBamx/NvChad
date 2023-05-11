@@ -208,6 +208,15 @@ local plugins = {
     end,
   },
 
+  -- diffview (git version >= 2.31)
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+    dependencies = { -- optional packages
+      "nvim-lua/plenary.nvim",
+    },
+  },
+
   { import = "custom.ui" },
   { import = "custom.dap" },
 }
