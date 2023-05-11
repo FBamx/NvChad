@@ -1,3 +1,4 @@
+local Util = require "custom.configs.util"
 local M = {}
 
 M.autoformat = true
@@ -10,9 +11,9 @@ function M.toggle()
     M.autoformat = not M.autoformat
   end
   if M.autoformat then
-    -- Util.info("Enabled format on save", { title = "Format" })
+    Util.info("Enabled format on save", { title = "Format" })
   else
-    -- Util.warn("Disabled format on save", { title = "Format" })
+    Util.warn("Disabled format on save", { title = "Format" })
   end
 end
 

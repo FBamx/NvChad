@@ -2,7 +2,6 @@ local M = {}
 
 M.root_patterns = { ".git", "lua" }
 
----@param on_attach fun(client, buffer)
 function M.on_attach(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
@@ -13,7 +12,6 @@ function M.on_attach(on_attach)
   })
 end
 
----@param name string
 function M.opts(name)
   local plugin = require("lazy.core.config").plugins[name]
   if not plugin then
@@ -23,17 +21,49 @@ function M.opts(name)
   return Plugin.values(plugin, "opts", false)
 end
 
--- Opens a floating terminal (interactive by default)
----@param cmd? string[]|string
----@param opts? LazyCmdOptions|{interactive?:boolean, esc_esc?:false}
-function M.float_term(cmd, opts)
-  opts = vim.tbl_deep_extend("force", {
-    size = { width = 0.9, height = 0.9 },
-  }, opts or {})
-  local float = require("lazy.util").float_term(cmd, opts)
-  if opts.esc_esc == false then
-    vim.keymap.set("t", "<esc>", "<esc>", { buffer = float.buf, nowait = true })
+function M.notify(msg, opts)
+  if vim.in_fast_event() then
+    return vim.schedule(function()
+      M.notify(msg, opts)
+    end)
   end
+
+  opts = opts or {}
+  if type(msg) == "table" then
+    msg = table.concat(
+      vim.tbl_filter(function(line)
+        return line or false
+      end, msg),
+      "\n"
+    )
+  end
+  local lang = opts.lang or "markdown"
+  vim.notify(msg, opts.level or vim.log.levels.INFO, {
+    on_open = function(win)
+      pcall(require, "nvim-treesitter")
+      vim.wo[win].conceallevel = 3
+      vim.wo[win].concealcursor = ""
+      vim.wo[win].spell = false
+      local buf = vim.api.nvim_win_get_buf(win)
+      if not pcall(vim.treesitter.start, buf, lang) then
+        vim.bo[buf].filetype = lang
+        vim.bo[buf].syntax = lang
+      end
+    end,
+    title = opts.title or "lazy.nvim",
+  })
+end
+
+function M.info(msg, opts)
+  opts = opts or {}
+  opts.level = vim.log.levels.INFO
+  M.notify(msg, opts)
+end
+
+function M.warn(msg, opts)
+  opts = opts or {}
+  opts.level = vim.log.levels.WARN
+  M.notify(msg, opts)
 end
 
 return M
