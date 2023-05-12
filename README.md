@@ -1,4 +1,4 @@
-# MNvchad
+# MyNvchad
 
 ## clean_nvim.sh
 
