@@ -16,6 +16,9 @@ M.ui = {
     separator_style = "default",
     overriden_modules = nil,
   },
+  cmp = {
+    style = "atom_colored",
+  },
 }
 
 M.plugins = "custom.plugins"
