@@ -29,6 +29,14 @@ M.SymbolOutline = {
 M.Lazy = {
   n = {
     ["<leader>la"] = { "<cmd> Lazy<CR>", "lazy" },
+    ["<leader>ls"] = { "<cmd> LspInfo<CR>", "lazy" },
+    ["<leader>ma"] = { "<cmd> Mason<CR>", "lazy" },
+  },
+}
+
+M.Mason = {
+  n = {
+    ["<leader>ma"] = { "<cmd> Mason<CR>", "lazy" },
   },
 }
 
