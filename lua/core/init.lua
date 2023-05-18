@@ -9,6 +9,12 @@ g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 
 -------------------------------------- options ------------------------------------------
+
+if vim.g.neovide then
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.o.guifont = "JetBrainsMono Nerd Font"
+end
+
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
@@ -116,5 +122,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 local new_cmd = vim.api.nvim_create_user_command
 
 new_cmd("NvChadUpdate", function()
-  require "nvchad.update" ()
+  require "nvchad.update"()
 end, {})
