@@ -356,7 +356,7 @@ local plugins = {
       type = "default",
       fancy = {
         enable = true,
-        head = { cursor = "▷", texthl = "SmoothCursor", linehl = nil },
+        head = { cursor = "", texthl = "SmoothCursor", linehl = nil },
         body = {
           { cursor = "", texthl = "SmoothCursorRed" },
           { cursor = "", texthl = "SmoothCursorOrange" },
