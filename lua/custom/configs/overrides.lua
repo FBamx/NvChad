@@ -29,6 +29,7 @@ M.treesitter = {
     "ron",
     "css",
     "html",
+    "java",
     "javascript",
     "typescript",
     "jsdoc",
@@ -44,39 +45,22 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
     "lua-language-server",
     "stylua",
-
-    -- bashls
+    "java-language-server",
     "bash-language-server",
-
-    -- web dev stuff
     "css-lsp",
     "html-lsp",
     "eslint-lsp",
     "typescript-language-server",
     "prettier",
-
-    -- c/cpp stuff
     "clangd",
-    -- "clang-format",
-
-    -- python stuff
     "pyright",
-
-    -- go stuff
     "gopls",
-
-    -- shell stuff
     "shfmt",
-
-    -- rust stuff
     "codelldb",
     "rust-analyzer",
     "taplo",
-
-    -- yaml
     "yaml-language-server",
   },
 }
