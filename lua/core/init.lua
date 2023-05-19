@@ -13,6 +13,8 @@ g.transparency = config.ui.transparency
 if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.o.guifont = "JetBrainsMono Nerd Font"
+  vim.g.neovide_floating_blur_amount_x = 25
+  vim.g.neovide_floating_blur_amount_y = 25
 end
 
 opt.laststatus = 3 -- global statusline

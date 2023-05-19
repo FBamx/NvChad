@@ -18,13 +18,6 @@ local plugins = {
         end,
       },
     },
-    --  opts = {
-    --    autoformat = true,
-    -- format = {
-    -- 	formatting_options = nil,
-    -- 	timeout_ms = nil,
-    -- },
-    --  },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -349,6 +342,42 @@ local plugins = {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+  },
+
+  -- smoothcursor
+  {
+    "gen740/SmoothCursor.nvim",
+    lazy = false,
+    opts = {
+      autostart = true,
+      cursor = "",
+      texthl = "SmoothCursor",
+      linehl = nil,
+      type = "default",
+      fancy = {
+        enable = true,
+        head = { cursor = "▷", texthl = "SmoothCursor", linehl = nil },
+        body = {
+          { cursor = "", texthl = "SmoothCursorRed" },
+          { cursor = "", texthl = "SmoothCursorOrange" },
+          { cursor = "●", texthl = "SmoothCursorYellow" },
+          { cursor = "●", texthl = "SmoothCursorGreen" },
+          { cursor = "•", texthl = "SmoothCursorAqua" },
+          { cursor = ".", texthl = "SmoothCursorBlue" },
+          { cursor = ".", texthl = "SmoothCursorPurple" },
+        },
+        tail = { cursor = nil, texthl = "SmoothCursor" },
+      },
+      flyin_effect = nil,
+      speed = 25,
+      intervals = 35,
+      priority = 10,
+      timeout = 3000,
+      threshold = 3,
+      disable_float_win = false,
+      enabled_filetypes = nil,
+      disabled_filetypes = nil,
+    },
   },
 
   { import = "custom.ui" },
