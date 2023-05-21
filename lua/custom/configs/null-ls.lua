@@ -18,8 +18,11 @@ local sources = {
   -- shell
   b.formatting.shfmt,
 
+  -- python
+  b.formatting.black,
+
   -- cpp
-  -- b.formatting.clang_format,
+  b.formatting.clang_format,
 }
 
 null_ls.setup {
