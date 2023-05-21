@@ -47,7 +47,6 @@ M.mason = {
   ensure_installed = {
     "lua-language-server",
     "stylua",
-    "java-language-server",
     "bash-language-server",
     "css-lsp",
     "html-lsp",
