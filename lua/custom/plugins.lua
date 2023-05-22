@@ -381,6 +381,15 @@ local plugins = {
     },
   },
 
+  -- filesystem buffer
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   { import = "custom.ui" },
   { import = "custom.dap" },
 }
