@@ -22,7 +22,7 @@ local sources = {
   b.formatting.black,
 
   -- cpp
-  b.formatting.clang_format,
+  b.formatting.clang,
 }
 
 null_ls.setup {
