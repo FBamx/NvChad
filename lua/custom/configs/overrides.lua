@@ -52,6 +52,7 @@ M.mason = {
     "html-lsp",
     "eslint-lsp",
     "typescript-language-server",
+    "deno",
     "prettier",
     "clangd",
     "clang-format",
