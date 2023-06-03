@@ -87,6 +87,7 @@ local options = {
     { name = "nvim_lua" },
     { name = "path" },
     { name = "cmp_tabnine" },
+    { name = "crates" },
   },
 }
 
