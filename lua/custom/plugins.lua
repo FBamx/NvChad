@@ -206,14 +206,33 @@ local plugins = {
   -- session management
   {
     "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
-    -- stylua: ignore
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
     keys = {
-      { "<leader>qs", function() require("persistence").load() end,                desc = "Restore Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end,                desc = "Don't Save Current Session" },
+      {
+        "<leader>qs",
+        function()
+          require("persistence").load()
+        end,
+        desc = "Restore Session",
+      },
+      {
+        "<leader>ql",
+        function()
+          require("persistence").load { last = true }
+        end,
+        desc = "Restore Last Session",
+      },
+      {
+        "<leader>qd",
+        function()
+          require("persistence").stop()
+        end,
+        desc = "Don't Save Current Session",
+      },
     },
+    config = function()
+      require("persistence").setup()
+    end,
   },
 
   -- library used by other plugins
