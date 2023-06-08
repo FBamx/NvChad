@@ -81,6 +81,7 @@ autocmd("FileType", {
     vim.opt_local.buflisted = false
   end,
 })
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup "highlight_yank",
